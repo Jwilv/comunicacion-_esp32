@@ -28,10 +28,11 @@ void Conexion(){
  Serial.print("conectado con exito");
 }
 void Logeo(){
-    Firebase.set(myFirebaseData,"MENSAJE","usuario conectado")
+    Firebase.set(myFirebaseData,"MENSAJE","usuario conectado");
 }
 String Recepcion(){
-Firebase.get(myFirebaseData)
+Firebase.get(myFirebaseData,"/MENSAJE");
+return myFirebaseData.StringData();
 }
 void setup() {
   Serial.begin(9600);
@@ -39,7 +40,9 @@ void setup() {
   Logeo();
 
 }
+void main(){
 
+}
 void loop() {
 }
 
